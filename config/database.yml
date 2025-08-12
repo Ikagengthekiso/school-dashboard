@@ -25,6 +25,5 @@ production:
 
 cable:
   <<: *default
-  url: <%= ENV['DATABASE_URL'] %>
-
+  url: <%= ENV['CABLE_DATABASE_URL'] %>
 
