@@ -27,3 +27,7 @@ cable:
   <<: *default
   url: <%= ENV['CABLE_DATABASE_URL'] %>
 
+queue:
+    <<: *default
+    url: <%= ENV['DATABASE_QUEUE_URL'] %>  # You need to set this env var
+
