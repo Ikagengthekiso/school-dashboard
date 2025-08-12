@@ -1,10 +1,11 @@
 <%= stylesheet_link_tag 'dashboard', media: 'all' %>
+
 <div class="container my-5">
 
   <!-- Header -->
   <div class="text-center mb-5">
     <h1 class="display-4">Pretoria Secondary School Principal Dashboard</h1>
-    <p class="text-secondary">A clean, modern overview of school performance and finances</p>
+    
   </div>
 
   <!-- Stats Cards -->
@@ -16,54 +17,61 @@
 
     <div class="dashboard-card text-center mb-4">
       <div class="section-header">Monthly Revenue</div>
-      <div class="stat-number text-success">R <%= number_with_precision(@actual_monthly_revenue, precision: 2) %></div>
+      <div class="stat-number text-success">
+        R <%= number_with_precision(@actual_monthly_revenue, precision: 2) %>
+      </div>
     </div>
 
     <div class="dashboard-card text-center mb-4">
       <div class="section-header">Yearly Revenue</div>
-      <div class="stat-number text-success">R <%= number_with_precision(@actual_yearly_revenue, precision: 2) %></div>
+      <div class="stat-number text-success">
+        R <%= number_with_precision(@actual_yearly_revenue, precision: 2) %>
+      </div>
     </div>
   </div>
 
   <!-- Financial Summary -->
-  <div class="financial-summary">
-  <div class="financial-card">
-    <h5>Monthly Revenue</h5>
-    <p class="label">Expected</p>
-    <p class="amount expected">R <%= number_with_precision(@expected_monthly_revenue, precision: 2) %></p>
+  <div class="financial-summary d-flex gap-4 flex-wrap">
 
-    <p class="label">Actual</p>
-    <p class="amount actual">R <%= number_with_precision(@actual_monthly_revenue, precision: 2) %></p>
+    <div class="financial-card p-3 border rounded">
+      <h5>Monthly Revenue</h5>
 
-    <% variance_monthly = @actual_monthly_revenue - @expected_monthly_revenue %>
-    <p class="label">Variance</p>
-    <p class="variance <%= variance_monthly >= 0 ? 'positive' : 'negative' %>">
-      R <%= number_with_precision(variance_monthly.abs, precision: 2) %>
-      <span class="arrow"><%= variance_monthly >= 0 ? '▲' : '▼' %></span>
-    </p>
+      <p class="label mb-1">Expected</p>
+      <p class="amount expected mb-2">R <%= number_with_precision(@expected_monthly_revenue, precision: 2) %></p>
+
+      <p class="label mb-1">Actual</p>
+      <p class="amount actual mb-2">R <%= number_with_precision(@actual_monthly_revenue, precision: 2) %></p>
+
+      <% variance_monthly = @actual_monthly_revenue - @expected_monthly_revenue %>
+      <p class="label mb-1">Variance</p>
+      <p class="variance <%= variance_monthly >= 0 ? 'positive' : 'negative' %>">
+        R <%= number_with_precision(variance_monthly.abs, precision: 2) %>
+        <span class="arrow"><%= variance_monthly >= 0 ? '▲' : '▼' %></span>
+      </p>
+    </div>
+
+    <div class="financial-card p-3 border rounded">
+      <h5>Yearly Revenue</h5>
+
+      <p class="label mb-1">Expected</p>
+      <p class="amount expected mb-2">R <%= number_with_precision(@expected_yearly_revenue, precision: 2) %></p>
+
+      <p class="label mb-1">Actual</p>
+      <p class="amount actual mb-2">R <%= number_with_precision(@actual_yearly_revenue, precision: 2) %></p>
+
+      <% variance_yearly = @actual_yearly_revenue - @expected_yearly_revenue %>
+      <p class="label mb-1">Variance</p>
+      <p class="variance <%= variance_yearly >= 0 ? 'positive' : 'negative' %>">
+        R <%= number_with_precision(variance_yearly.abs, precision: 2) %>
+        <span class="arrow"><%= variance_yearly >= 0 ? '▲' : '▼' %></span>
+      </p>
+    </div>
+
   </div>
-
-  <div class="financial-card">
-    <h5>Yearly Revenue</h5>
-    <p class="label">Expected</p>
-    <p class="amount expected">R <%= number_with_precision(@expected_yearly_revenue, precision: 2) %></p>
-
-    <p class="label">Actual</p>
-    <p class="amount actual">R <%= number_with_precision(@actual_yearly_revenue, precision: 2) %></p>
-
-    <% variance_yearly = @actual_yearly_revenue - @expected_yearly_revenue %>
-    <p class="label">Variance</p>
-    <p class="variance <%= variance_yearly >= 0 ? 'positive' : 'negative' %>">
-      R <%= number_with_precision(variance_yearly.abs, precision: 2) %>
-      <span class="arrow"><%= variance_yearly >= 0 ? '▲' : '▼' %></span>
-    </p>
-  </div>
-</div>
-  
 
   <!-- Attendance & Academics -->
   <div class="dashboard-card mb-5">
-    <div class="section-header">Attendance & Academic Averages</div>
+    <div class="section-header mb-3">Attendance & Academic Averages</div>
     <table class="table align-middle text-center">
       <thead>
         <tr>
@@ -88,7 +96,7 @@
 
   <!-- Top Students -->
   <div class="dashboard-card mb-5">
-    <div class="section-header">Top 3 Students per Grade</div>
+    <div class="section-header mb-3">Top 3 Students per Grade</div>
     <% @grades.each do |grade| %>
       <h5 class="mt-3"><%= grade.name %></h5>
       <% @top_students_by_grade[grade.id].each do |student| %>
@@ -102,7 +110,7 @@
 
   <!-- Top Classes -->
   <div class="dashboard-card mb-5">
-    <div class="section-header">Top 3 Classes per Grade</div>
+    <div class="section-header mb-3">Top 3 Classes per Grade</div>
     <% @grades.each do |grade| %>
       <h5 class="mt-3"><%= grade.name %></h5>
       <% @top_classes_by_grade[grade.id].each do |classroom| %>

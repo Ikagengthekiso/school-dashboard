@@ -1,77 +1,67 @@
+h1.avg-performance-title {
+  font-weight: 700;
+  font-size: 2rem;
+  color: #000000;
+  margin-bottom: 2rem;
+  border-bottom: 3px solid #3b82f6; /* bright blue underline */
+  padding-bottom: 0.5rem;
+}
 
-  /* Section Title */
-  h1.avg-performance-title {
-    font-weight: 700;
-    font-size: 2rem;
-    color: #222831; /* dark charcoal */
-    margin-bottom: 2rem;
-    border-bottom: 3px solid #3f72af; /* muted blue underline */
-    padding-bottom: 0.5rem;
-    text-shadow: 0 0 8px #3f72af88;
-  }
+h2.grade-name {
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: #000000;
+  margin: 2.5rem 0 1rem;
+}
 
-  h2.grade-name {
-    font-weight: 600;
-    font-size: 1.3rem;
-    color: #394867; /* slate blue */
-    margin-top: 2.5rem;
-    margin-bottom: 1rem;
-    text-shadow: 0 0 4px #3f72afcc;
-  }
+.performance-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 15px;
+  font-size: 0.95rem;
+  background: #1e1e1e;
+  border-radius: 16px;
+  overflow: hidden;
+  color: #eee;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.7);
+}
 
-  /* Glassy neutral table styling */
-  .performance-table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0 15px;
-    font-size: 0.95rem;
-    background: rgba(63, 114, 175, 0.15); /* translucent blue-gray */
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    box-shadow: 0 8px 25px rgba(63, 114, 175, 0.4);
-    border-radius: 16px;
-    overflow: hidden;
-    color: #222831;
-  }
+.performance-table thead tr {
+  background: #272727;
+  color: #bbb;
+  font-weight: 700;
+}
 
-  .performance-table thead tr {
-    background: rgba(63, 114, 175, 0.35);
-    color: #1f2a44;
-    font-weight: 700;
-    text-shadow: 0 0 5px #5472d3cc;
-  }
+.performance-table thead th {
+  padding: 1rem 1.5rem;
+  text-align: left;
+  border-bottom: 1.5px solid #444;
+}
 
-  .performance-table thead th {
-    padding: 1rem 1.5rem;
-    text-align: left;
-    border-bottom: 1.5px solid rgba(31, 42, 68, 0.3);
-  }
+.performance-table tbody tr {
+  background: #222;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.7);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
 
-  .performance-table tbody tr {
-    background: rgba(57, 72, 103, 0.15);
-    box-shadow: 0 0 8px rgba(63, 114, 175, 0.3);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    cursor: default;
-  }
+.performance-table tbody tr:hover {
+  background: #333;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.85);
+}
 
-  .performance-table tbody tr:hover {
-    background: rgba(63, 114, 175, 0.35);
-    box-shadow: 0 0 20px #5472d3cc;
-  }
+.performance-table tbody td {
+  padding: 1rem 1.5rem;
+  vertical-align: middle;
+  color: #eee;
+}
 
-  .performance-table tbody td {
-    padding: 1rem 1.5rem;
-    border-left: 1px solid transparent;
-    vertical-align: middle;
-    color: #222831;
-  }
+.performance-table tbody tr td:first-child {
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+}
 
-  .performance-table tbody tr td:first-child {
-    border-top-left-radius: 16px;
-    border-bottom-left-radius: 16px;
-  }
-
-  .performance-table tbody tr td:last-child {
-    border-top-right-radius: 16px;
-    border-bottom-right-radius: 16px;
-  }
+.performance-table tbody tr td:last-child {
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
