@@ -1,7 +1,8 @@
 class Teacher < ApplicationRecord
   has_many :lectures  # Add this line if missing
-  has_many :teacher_subjects
+  has_many :teacher_subjects, dependent: :destroy
   has_many :subjects, through: :teacher_subjects
+
 
   has_many :classrooms, foreign_key: "homeroom_teacher_id"
   def full_name
