@@ -1,0 +1,40 @@
+<h1>Teachers Overview</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Teacher</th>
+      <th>Email</th>
+     
+      <th>Subject</th>
+      <th>Grade</th>
+      <th>Average Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @teachers.each do |teacher| %>
+      <% lectures_grouped = teacher.lectures.group_by { |lec| [lec.subject, lec.grade] } %>
+      <% if lectures_grouped.empty? %>
+        <tr>
+          <td><%= teacher.full_name %></td>
+          <td><%= teacher.email %></td>
+          <td><%= teacher.phone || "N/A" %></td>
+          <td colspan="3">No assigned subjects or grades</td>
+        </tr>
+      <% else %>
+        <% lectures_grouped.each_with_index do |((subject, grade), _), idx| %>
+          <tr>
+            <% if idx == 0 %>
+              <td rowspan="<%= lectures_grouped.size %>"><%= teacher.full_name %></td>
+              <td rowspan="<%= lectures_grouped.size %>"><%= teacher.email %></td>
+             
+            <% end %>
+            <td><%= subject.name %></td>
+            <td><%= grade.name %></td>
+            <td><%= @averages[[teacher.id, subject.id, grade.id]] || "N/A" %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

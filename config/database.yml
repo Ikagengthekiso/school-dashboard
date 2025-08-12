@@ -1,0 +1,24 @@
+# config/database.yml
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: ikagengthekiso
+  password:
+  host: localhost
+
+development:
+  <<: *default
+  database: school_dashboard_development
+
+test:
+  <<: *default
+  database: school_dashboard_test
+
+production:
+  <<: *default
+  database: school_dashboard_production
+  username: <%= ENV['PGUSER'] || 'ikagengthekisos' %>
+  password: <%= ENV['PGPASSWORD'] %>
+  host: <%= ENV['PGHOST'] || 'localhost' %>

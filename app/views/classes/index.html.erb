@@ -1,0 +1,27 @@
+<%= stylesheet_link_tag 'classes', media: 'all' %>
+
+<h1 class="avg-performance-title">Average Performance Per Class</h1>
+
+<% @grades.each do |grade| %>
+  <h2 class="grade-name"><%= grade.name %></h2>
+  <table class="performance-table" role="table" aria-label="Performance data for <%= grade.name %>">
+    <thead>
+      <tr>
+        <th scope="col">Classroom</th>
+        <th scope="col">Homeroom Teacher</th>
+        <th scope="col">Average Academic Score</th>
+        <th scope="col">Number of Students</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% grade.classrooms.each do |classroom| %>
+        <tr>
+          <td><%= classroom.name %></td>
+          <td><%= classroom.homeroom_teacher.full_name %></td>
+          <td><%= @classroom_averages[classroom.id] || "N/A" %></td>
+          <td><%= classroom.students.count %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

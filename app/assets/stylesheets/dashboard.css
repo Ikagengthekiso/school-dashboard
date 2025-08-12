@@ -1,0 +1,173 @@
+body {
+  background: #f5f5f7;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #1d1d1f;
+  line-height: 1.5;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+}
+
+/* Headings */
+h1.display-4 {
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: #1d1d1f;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: #1d1d1f;
+  margin-bottom: 0.75rem;
+}
+
+/* Dashboard Card */
+.dashboard-card {
+  border-radius: 20px;
+  padding: 1.5rem;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+
+/* Section header (subtle Apple-style) */
+.section-header {
+  font-weight: 500;
+  color: #6e6e73;
+  font-size: 0.9rem;
+  text-transform: none;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.3px;
+}
+
+/* Table */
+.table {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  font-size: 0.95rem;
+}
+
+.table thead {
+  background: #f5f5f7;
+  font-weight: 500;
+  color: #6e6e73;
+}
+
+/* List items */
+.list-group-item {
+  border-radius: 12px;
+  border: none;
+  background: #f9f9fb;
+  margin-bottom: 0.4rem;
+  transition: background 0.25s ease;
+}
+
+.list-group-item:hover {
+  background: #ececf1;
+}
+
+/* Badges (pill shape) */
+.badge {
+  font-weight: 500;
+  padding: 0.4em 0.9em;
+  border-radius: 999px;
+  font-size: 0.85rem;
+}
+
+/* Stats numbers */
+.stat-number {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #1d1d1f;
+  margin-top: 0.25rem;
+}
+
+/* Colors */
+.text-success {
+  color: #007d1c !important;
+}
+.text-primary {
+  color: #0071e3 !important;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  .stat-number {
+    font-size: 1.4rem;
+  }
+}
+
+.financial-summary {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.financial-card {
+  flex: 1 1 300px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+}
+
+.financial-card h5 {
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+
+.label {
+  color: #64748b;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  margin: 0;
+  margin-bottom: 0.3rem;
+}
+
+.amount {
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin: 0 0 1rem 0;
+}
+
+.expected {
+  color: #059669; /* green */
+}
+
+.actual {
+  color: #2563eb; /* blue */
+}
+
+.variance {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.variance.positive {
+  color: #059669; /* green */
+}
+
+.variance.negative {
+  color: #dc2626; /* red */
+}
+
+.arrow {
+  font-size: 1.2rem;
+  line-height: 1;
+}
