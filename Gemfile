@@ -10,6 +10,7 @@ gem "propshaft"
 # Add this
 gem "pg", "~> 1.5"
 
+ruby "3.3.9"
 
 
 # Use the Puma web server [https://github.com/puma/puma]
