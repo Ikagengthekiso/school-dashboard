@@ -18,7 +18,6 @@ o	Basic dashboard UI for quick insights
 
 o	Framework: Ruby on Rails 8  
 o	Language: Ruby 3.3.0  
-o	Database (Development): SQLite3  
 o	Database (Production): PostgreSQL (Heroku)  
 - Gems:
 	`faker` – for generating seed data
