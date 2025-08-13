@@ -10,7 +10,7 @@ gem "propshaft"
 # Add this
 gem "pg", "~> 1.5"
 
-ruby '3.3.0'
+ruby "3.3.0"
 
 
 

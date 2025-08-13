@@ -70,7 +70,7 @@ teachers.each_with_index do |teacher, idx|
 end
 
 # Create classrooms per grade, assign homeroom teachers
-classroom_names = ['A', 'B', 'C']
+classroom_names = [ 'A', 'B', 'C' ]
 classrooms = []
 
 grades.each_with_index do |grade, grade_index|
@@ -124,7 +124,7 @@ students.each do |student|
     Attendance.create!(
       student: student,
       date: date,
-      present: [true, true, true, false].sample  # mostly present
+      present: [ true, true, true, false ].sample  # mostly present
     )
   end
 end
@@ -147,7 +147,7 @@ students.each do |student|
       student: student,
       amount: 5300,
       payment_date: Date.today.beginning_of_month - month_ago.months,
-      paid: [true, true, true, false].sample
+      paid: [ true, true, true, false ].sample
     )
   end
 end

@@ -1,5 +1,5 @@
 class Teacher < ApplicationRecord
-  has_many :lectures  
+  has_many :lectures
   has_many :teacher_subjects, dependent: :destroy
   has_many :subjects, through: :teacher_subjects
 
