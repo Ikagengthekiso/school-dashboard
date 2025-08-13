@@ -1,6 +1,6 @@
 🚌 School Dashboard 
 
-A Ruby on Rails application for managing school data including grades, students, attendance, and performance statistics. Initially developed with SQLite for local development, later switched to PostgreSQL for deployment on Heroku. Faker is used for seeding the database with test data.
+A Ruby on Rails application for managing school data including grades, students, attendance, and performance statistics. Initially developed with SQLite for local development, later switched to PostgreSQL for deployment on Heroku. Faker is used for seeding the database with test data. 
 
 ---
 
@@ -32,7 +32,6 @@ o	Database (Production): PostgreSQL (Heroku)
  Prerequisites
 •	Ruby 3.3.0+
 •	Bundler
-•	SQLite3 (for local development)
 •	PostgreSQL (for production deployment)
 
  Steps
@@ -41,6 +40,5 @@ o	Database (Production): PostgreSQL (Heroku)
 ```bash
 git clone https://github.com/your-username/school-dashboard.git
 cd school-dashboard
-
 
 
