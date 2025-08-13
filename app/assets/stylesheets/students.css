@@ -10,7 +10,7 @@ h1 {
   font-weight: 700;
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
-  color: #000000; /* bright blue */
+  color: #000000; 
   letter-spacing: -0.02em;
 }
 
@@ -24,7 +24,7 @@ form {
 
 label {
   font-weight: 600;
-  color: #ddd; /* coral/red accent */
+  color: #ddd; 
   white-space: nowrap;
 }
 
@@ -70,7 +70,7 @@ table {
 thead th {
   padding: 14px 24px;
   font-weight: 700;
-  color: #ddd; /* coral accent */
+  color: #ddd; 
   border-bottom: 3px solid #ddd;
   letter-spacing: 0.03em;
   text-align: left;

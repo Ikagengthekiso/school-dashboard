@@ -11,24 +11,35 @@
   <!-- Stats Cards -->
   <div>
     <div class="dashboard-card text-center mb-4">
-      <div class="section-header">Total Students</div>
+      <div class="section-header">Total Students Enrolled</div>
       <div class="stat-number"><%= @total_students %></div>
     </div>
 
+    <!-- New Fees Section -->
+    <div class="dashboard-card text-center mb-4">
+      <div class="section-header">Monthly school Fees</div>
+      <div class="stat-number text-warning">
+        R 5300
+      </div>
+    </div>
+  </div>
+
     <div class="dashboard-card text-center mb-4">
       <div class="section-header">Monthly Revenue</div>
-      <div class="stat-number text-success">
+      <div class="stat-number abc">
         R <%= number_with_precision(@actual_monthly_revenue, precision: 2) %>
       </div>
     </div>
 
     <div class="dashboard-card text-center mb-4">
       <div class="section-header">Yearly Revenue</div>
-      <div class="stat-number text-success">
+      <div class="stat-number abc ">
         R <%= number_with_precision(@actual_yearly_revenue, precision: 2) %>
       </div>
     </div>
   </div>
+
+ 
 
   <!-- Financial Summary -->
   <div class="financial-summary d-flex gap-4 flex-wrap">

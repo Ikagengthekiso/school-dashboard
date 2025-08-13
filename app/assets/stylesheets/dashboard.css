@@ -141,11 +141,12 @@ h2 {
 }
 
 .expected {
-  color: #22c55e; /* bright green */
+  
+  color: #3b82f6;
 }
 
 .actual {
-  color: #3b82f6; /* bright blue */
+  color: #22c55e; 
 }
 
 .variance {
@@ -160,6 +161,25 @@ h2 {
 .variance.positive {
   color: #22c55e;
 }
+.fees-card {
+  background: #121212; 
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+}
+
+.fees-card .section-header {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ddd;
+  margin-bottom: 10px;
+}
+
+.fees-card .stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff; /* white text */
+}
 
 .variance.negative {
   color: #ef4444;
@@ -170,8 +190,7 @@ h2 {
   line-height: 1;
 }
 
-@media (max-width: 576px) {
-  .stat-number {
-    font-size: 1.4rem;
-  }
+.abc{
+  color: #22c55e;
 }
+
