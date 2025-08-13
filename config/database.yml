@@ -1,0 +1,36 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  username: ikagengthekiso
+  password: ""
+  host: localhost
+  port: 5432
+  database: school_dashboard_development
+
+test:
+  <<: *default
+  username: ikagengthekiso
+  password: ""
+  host: localhost
+  port: 5432
+  database: school_dashboard_test
+
+production:
+  <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
+
+cache:
+  <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
+
+cable:
+  <<: *default
+  url: <%= ENV['CABLE_DATABASE_URL'] %>
+
+queue:
+  <<: *default
+  url: <%= ENV['DATABASE_QUEUE_URL'] %>  # Make sure this env var is set if used

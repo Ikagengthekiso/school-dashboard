@@ -1,0 +1,136 @@
+<%= stylesheet_link_tag 'dashboard', media: 'all' %>
+
+<div class="container my-5">
+
+  <!-- Header -->
+  <div class="text-center mb-5">
+    <h1 class="display-4">Pretoria Secondary School Principal Dashboard</h1>
+    
+  </div>
+
+  <!-- Stats Cards -->
+  <div>
+    <div class="dashboard-card text-center mb-4">
+      <div class="section-header">Total Students Enrolled</div>
+      <div class="stat-number"><%= @total_students %></div>
+    </div>
+
+    <!-- New Fees Section -->
+    <div class="dashboard-card text-center mb-4">
+      <div class="section-header">Monthly school Fees</div>
+      <div class="stat-number text-warning">
+        R 5300
+      </div>
+    </div>
+  </div>
+
+    <div class="dashboard-card text-center mb-4">
+      <div class="section-header">Monthly Revenue</div>
+      <div class="stat-number abc">
+        R <%= number_with_precision(@actual_monthly_revenue, precision: 2) %>
+      </div>
+    </div>
+
+    <div class="dashboard-card text-center mb-4">
+      <div class="section-header">Yearly Revenue</div>
+      <div class="stat-number abc ">
+        R <%= number_with_precision(@actual_yearly_revenue, precision: 2) %>
+      </div>
+    </div>
+  </div>
+
+ 
+
+  <!-- Financial Summary -->
+  <div class="financial-summary d-flex gap-4 flex-wrap">
+
+    <div class="financial-card p-3 border rounded">
+      <h5>Monthly Revenue</h5>
+
+      <p class="label mb-1">Expected</p>
+      <p class="amount expected mb-2">R <%= number_with_precision(@expected_monthly_revenue, precision: 2) %></p>
+
+      <p class="label mb-1">Actual</p>
+      <p class="amount actual mb-2">R <%= number_with_precision(@actual_monthly_revenue, precision: 2) %></p>
+
+      <% variance_monthly = @actual_monthly_revenue - @expected_monthly_revenue %>
+      <p class="label mb-1">Variance</p>
+      <p class="variance <%= variance_monthly >= 0 ? 'positive' : 'negative' %>">
+        R <%= number_with_precision(variance_monthly.abs, precision: 2) %>
+        <span class="arrow"><%= variance_monthly >= 0 ? '▲' : '▼' %></span>
+      </p>
+    </div>
+
+    <div class="financial-card p-3 border rounded">
+      <h5>Yearly Revenue</h5>
+
+      <p class="label mb-1">Expected</p>
+      <p class="amount expected mb-2">R <%= number_with_precision(@expected_yearly_revenue, precision: 2) %></p>
+
+      <p class="label mb-1">Actual</p>
+      <p class="amount actual mb-2">R <%= number_with_precision(@actual_yearly_revenue, precision: 2) %></p>
+
+      <% variance_yearly = @actual_yearly_revenue - @expected_yearly_revenue %>
+      <p class="label mb-1">Variance</p>
+      <p class="variance <%= variance_yearly >= 0 ? 'positive' : 'negative' %>">
+        R <%= number_with_precision(variance_yearly.abs, precision: 2) %>
+        <span class="arrow"><%= variance_yearly >= 0 ? '▲' : '▼' %></span>
+      </p>
+    </div>
+
+  </div>
+
+  <!-- Attendance & Academics -->
+  <div class="dashboard-card mb-5">
+    <div class="section-header mb-3">Attendance & Academic Averages</div>
+    <table class="table align-middle text-center">
+      <thead>
+        <tr>
+          <th>Grade</th>
+          <th>Students</th>
+          <th>Attendance (%)</th>
+          <th>Academic Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @grades.each do |grade| %>
+          <tr>
+            <td><%= grade.name %></td>
+            <td><%= @student_count_by_grade[grade.id] %></td>
+            <td><%= @average_attendance_by_grade[grade.id] || 0 %></td>
+            <td><%= @average_score_by_grade[grade.id] || 0 %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Top Students -->
+  <div class="dashboard-card mb-5">
+    <div class="section-header mb-3">Top 3 Students per Grade</div>
+    <% @grades.each do |grade| %>
+      <h5 class="mt-3"><%= grade.name %></h5>
+      <% @top_students_by_grade[grade.id].each do |student| %>
+        <div class="list-group-item d-flex justify-content-between align-items-center">
+          <span><%= student.first_name %> <%= student.last_name %></span>
+          <span class="badge bg-success text-white">Score: <%= student.avg_score.to_f.round(2) %></span>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <!-- Top Classes -->
+  <div class="dashboard-card mb-5">
+    <div class="section-header mb-3">Top 3 Classes per Grade</div>
+    <% @grades.each do |grade| %>
+      <h5 class="mt-3"><%= grade.name %></h5>
+      <% @top_classes_by_grade[grade.id].each do |classroom| %>
+        <div class="list-group-item d-flex justify-content-between align-items-center">
+          <span><%= classroom.name %></span>
+          <span class="badge bg-primary text-white">Score: <%= classroom.avg_score.to_f.round(2) %></span>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+</div>

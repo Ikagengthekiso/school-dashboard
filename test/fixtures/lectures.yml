@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  subject: one
+  teacher: one
+  grade: one
+  classroom: one
+  date: 2025-08-10
+
+two:
+  subject: two
+  teacher: two
+  grade: two
+  classroom: two
+  date: 2025-08-10
