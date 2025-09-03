@@ -8,7 +8,7 @@ gem "propshaft"
 # gem 'pg'
 
 # Add this
-gem "pg", "~> 1.5"
+gem "pg", "~> 1.6"
 
 ruby "3.3.0"
 
